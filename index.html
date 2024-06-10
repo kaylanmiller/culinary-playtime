@@ -1,0 +1,316 @@
+<!doctype html>
+
+<html>
+	
+<head>
+	
+<!--The following displays language used in browser to interpret page -->
+<meta charset="UTF-8">
+
+<!--The following line of code displays the page title on a browser tab -->
+<title>Site Title | Home</title>
+
+<!--link tags are for linking to external files, in this case your CSS stylesheet-->
+<link href="style.css" rel="stylesheet" type="text/css">
+	
+<!--link tags are for linking to external files, in this case a special CSS stylesheet-->
+<link href="normalize.css" rel="stylesheet" type="text/css">
+
+<!--the following tag tells the browser to adjust the site according to screen size-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--The following code links to the jquery library -->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+<!--The following code links to the javascript file that runs the slideshow -->	
+<script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
+    
+<!--The following code links to the javascript file that runs the parallax image -->    
+<script src="js/parallax.min.js"></script>
+	
+<!--The following code links to Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Raleway:900|Rubik" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	
+<!--The following javscript runs the jquery slideshow -->
+<script type="text/javascript">
+$('#slider').cycle({});
+</script>
+
+<!--The following javascript runs the nav bar which disappears on scroll-->
+<script type="text/javascript">
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+</script>
+    
+<!--Favicon - images are in a folder called 'fav'-->
+<link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+<link rel="manifest" href="img/fav/site.webmanifest">
+<link rel="mask-icon" href="img/fav/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!--End Favicon-->
+    
+<!--back to top button-->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}    
+</script>   
+</head>
+
+<body>
+
+<!--beginning of navigation section-->
+<header>
+<div class="nav-container">
+<div class="brand"><img src="img/logo.svg" width="190" height="75" alt=""/></div>
+<nav>
+<div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+  <ul class="nav-list">
+        <li>
+          <a href="#home">What</a>
+        </li>
+	   <li>
+          <a href="#gal">Do</a>
+		  </li>
+	  	<li>
+          <a href="#tl">I</a>
+        </li>
+        <li>
+          <a href="#vid">Write</a>
+			</li>
+      <li>
+          <a href="#num">Here</a>
+			</li>
+      </ul>
+</nav>
+</div>
+<!--closing navigation tag-->
+</header>
+<!--end of navigation section-->
+    
+<!--main image-->
+<div class="container">
+</div>
+<!--animated welcome-->
+<div class="wrapper">
+<!--animated welcome code here-->	
+</div>
+    
+<!--beginning of main content area-->
+<div class="row whiteBG">
+<h2 id="home">bringing us together one bite at a time!</h2>
+<article>
+<p class="tab">Culinary Playtime is a place of fun and creativity. Food can create memories by bringing people together. Keep scrolling for fun snack ideas, a look into what working in the food industry can be, and the priceless experiences of spending time with the people you love.<br><br></p>
+<p class="tab"><a href="#gal">Up Next...</a></p>
+</article>
+</div>
+
+<!--beginning of slideshow section-->
+<div class="row blueBG"><!--beginning of row-->
+<h2 id="gal">Inside the Shack</h2>
+<article><!--beginning of article-->
+<p class="tab">A small space with BIG vibes</p>
+<!--beginning of slideshow-->
+<div id="slider"
+data-cycle-caption="#alt-caption"
+data-cycle-caption-template="{{alt}}"
+data-cycle-fx="scrollHorz"
+data-cycle-pause-on-hover="true"
+data-cycle-speed="200">
+<div class="cycle-prev"></div>
+<div class="cycle-next"></div>
+<img src="img/1.jpg" width="100%" height="100%" alt="Cal Poly’s Shake Smart location is a popular spot among students for a post-gym healthy snack or meal. Despite the crowds and limited space, it is a fun, energetic, and positive place to work according to their employees. Located right outside Cal Poly’s recreation center, it is a convenient stop after a good work-out. "/>
+<img src="img/2.jpg" width="100%" height="100%" alt="Acai bowls are one of the most popular eats at Shake Smart, and “...when it’s super busy, like during passing period, being at the bowl station definitely puts my acai bowl making skills to the test,” said Leah Spires, third-year business major and Shake Smart employee of two years."/>
+<img src="img/3.jpg" width="100%" height="100%" alt="Dani Mallat and Sydney Kringel are good friends and have both worked at Shake Smart for over two years. “The vibes in the shop are always so fun when we work together, and the whole team is just so awesome,” said Dani. Photographed: Sydney Kringel (right), fourth-year liberal studies major & Dani Mallat (left), fourth-year journalism major."/>
+<img src="img/4.jpg" width="100%" height="100%" alt="Shake Smart recently transitioned from OptimumWhey Protein to their own Shake Smart Protein! With the limited space in the small shack, it can be a struggle finding a place to put everything. All the protein is stored on top of the freezers, and the only way to reach them is by a ladder kept in the shop, or jumping as high as possible, according to the taller employees."/>
+<img src="img/5.jpg" width="100%" height="100%" alt="Up close and personal, this is the classic Rawcai Acai Bowl. All shakes and bowls can be modified however customers would like, and they are made to order! Employee Dani Mallat said, “We use so much peanut butter in the shop, it’s actually unreal. I feel like I’m constantly re-stocking it but hey, that’s business.”"/>
+<img src="img/6.jpg" width="100%" height="100%" alt="“Don’t mind me, just re-filling the granola,” said Dani as she made her way through the crowd of 5 team members working. It can get crowded trying to maneuver around in the little shack, but it’s also fun to mess around and jokingly “bump” into the other people working according to the employees on shift. “We kind of just listen to our favorite music and talk to each other so it doesn’t really feel like we’re at work,” said Dani."/>
+<img src="img/7.jpg" width="100%" height="100%" alt="Braden (left), Dani (middle), and Sydney (right) have been co-workers and friends for the last two years. “We tell our manager to schedule us together so that it feels like we’re just hanging out,” said Sydney. The laughter and positivity radiated during their shift was obvious, and it makes the shift feel shorter and so much more fun according to them. Photographed: Braden Allen, fourth-year business major & Dani Mallat, fourth-year journalism major & Sydney Kringel, fourth-year liberal studies major."/>
+<img src="img/8.jpg" width="100%" height="100%" alt="POV: you walk up to the window to pick up your order when your name is called and you see the employees messing around and laughing with each other. Photographed: Sydney Kringel (left) & Dani Mallat (right)"/>
+<img src="img/9.jpg" width="100%" height="100%" alt="Leah Spires (right) was the shift lead for this shift, which means she has a little bit more responsibility during her shift than the others, but every role is so important. “I never really get stressed even if I’m shift lead! Nothing is really that deep and there’s always such a great group that is working so it’s never a rough day of work,” said Leah. "/>
+<img src="img/10.jpg" width="100%" height="100%" alt="Time to Be Real! Even at work! The fun at Shake Smart doesn’t end according to third-year english major and Shake Smart Employee, Alicia Johnston. “I’m not even on shift, but I came in to make a coffee and everyone was laughing and screaming, I just had to stay a while,” she said. It is extremely normal that employees come in when they’re not working to say hi to the working team and hang out! "/>
+</div><!--end of slideshow-->
+<!--beginning of slideshow caption-->
+<div id="alt-caption" class="center">
+</div><!--end of slideshow caption-->
+<p class="tab"><a href="#tl">Hear more</a></p>
+</article><!--end of article-->
+</div><!--end of row-->
+<!--end of slideshow section-->
+	
+<!--beginning of audio section-->
+<div class="row whiteBG">
+<h2 id="tl">It's your first date, what are you cooking to impress?</h2>
+<article>
+  <p class="tab">Click on images to hear ...<br>(Double-click to pause audio)</p>
+  <div class="table">
+	<div id="trip">
+<audio id="audio_1">
+    <source src="audio/1.mp3" type="audio/mpeg" />
+</audio>        
+<audio id="audio_2">
+    <source src="audio/2.mp3" type="audio/mpeg" />
+</audio>        
+<audio id="audio_3">
+	<source src="audio/3.mp3" type="audio/mpeg" />
+</audio>
+        
+<img src="img/rollover/1.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/1.jpg'" onMouseOut="this.src='img/rollover/1.gif'" onClick="document.getElementById('audio_1').play(); return false;" onDblClick="document.getElementById('audio_1').pause(); return false;">
+ /&gt; 
+            
+<img src="img/rollover/2.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/2.jpg'" onMouseOut="this.src='img/rollover/2.gif'" onClick="document.getElementById('audio_2').play(); return false;" onDblClick="document.getElementById('audio_2').pause(); return false;">
+ /&gt;
+            
+<img src="img/rollover/3.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/3.jpg'" onMouseOut="this.src='img/rollover/3.gif'" onClick="document.getElementById('audio_3').play(); return false;" onDblClick="document.getElementById('audio_3').pause(); return false;">
+/&gt;
+	</div>
+</div>
+<p class="tab"><a href="#vid">watch more</a></p>		
+</article>
+</div>
+<!--end of audio section-->
+    
+<!--beginning of parallax image-->
+<div class="parallax" data-parallax="scroll" data-bleed="10" data-speed="0.2" iosFix="true" data-image-src="img/parallax.jpg">
+</div>
+<!--end of parallax image-->
+
+<!--beginning of video section-->
+<div class="row orangeBG">
+<h2 id="vid">Heading</h2>
+<article>
+<p class="tab">Blurb</p>	
+<video width="100%" height="100%" poster="img/poster.jpg" controls>
+<source src="/Users/KaylaMiller/Desktop/video.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p class="tab"><a href="#num">Navigation</a></p>
+</article>
+</div>
+<!--end of video section-->
+
+<!--beginning of infographic section-->
+<div class="row whiteBG">
+<h2 id="num">Heading</h2>
+<article>
+<p class="tab"></p>
+<!--infographic embed code here-->
+</article>
+</div>
+<!--end of infographic section-->
+	
+<!--beginning of footer-->
+<footer>Culinary Playtime | San Luis Obispo, CA | <a href="mailto: email@email.com?Subject=Inquiry" target="_top">Send Email</a> | Copyright 20__ | Site by You 
+</footer>
+<!--end of footer-->
+	
+</body>
+	
+<!--the following script controls the responsive navigation-->
+<script>
+	(function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+	</script>
+	<script>
+	var headertext = [];
+var headers = document.querySelectorAll("#miyazaki th"),
+tablerows = document.querySelectorAll("#miyazaki th"),
+tablebody = document.querySelector("#miyazaki tbody");
+for(var i = 0; i < headers.length; i++) {
+	var current = headers[i];
+	headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
+}
+for (var i = 0, row; row = tablebody.rows[i]; i++) {
+	for (var j = 0, col; col = row.cells[j]; j++) {
+		col.setAttribute("data-th", headertext[j]);
+	}
+}
+</script>
+	
+	<!----Prevents audio tracks from playing simultaneously---->
+<script>
+document.addEventListener('play', function(e){
+    var audios = document.getElementsByTagName('audio');
+    for(var i = 0, len = audios.length; i < len;i++){
+        if(audios[i] != e.target){
+            audios[i].pause();
+        }
+    }
+}, true);
+    </script>
+
+</html>
